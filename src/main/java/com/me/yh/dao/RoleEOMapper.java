@@ -1,17 +1,13 @@
 package com.me.yh.dao;
 
+import com.me.utils.base.dao.BaseDao;
 import com.me.yh.entity.RoleEO;
+import org.springframework.stereotype.Repository;
 
-public interface RoleEOMapper {
-    int deleteByPrimaryKey(Integer id);
+import java.util.Set;
 
-    int insert(RoleEO record);
+@Repository
+public interface RoleEOMapper extends BaseDao<RoleEO> {
 
-    int insertSelective(RoleEO record);
-
-    RoleEO selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(RoleEO record);
-
-    int updateByPrimaryKey(RoleEO record);
+    Set<RoleEO> getRoleSetByRoleIds(Set<String> roleIdSet);
 }

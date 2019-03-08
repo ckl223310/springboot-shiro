@@ -1,17 +1,15 @@
 package com.me.yh.dao;
 
-import com.me.yh.entity.UserEO;
+import com.me.utils.base.dao.BaseDao;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-public interface UserEOMapper {
-    int deleteByPrimaryKey(Integer id);
+import java.util.Set;
 
-    int insert(UserEO record);
+@Repository
+public interface UserEOMapper extends BaseDao {
 
-    int insertSelective(UserEO record);
+    String getUserIdByUserName(@Param("userName") String getUserIdByUserName);
 
-    UserEO selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(UserEO record);
-
-    int updateByPrimaryKey(UserEO record);
+    Set<String> getRoleIdSetByUserId(@Param("userId") String userId);
 }
